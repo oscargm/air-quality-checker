@@ -6,6 +6,10 @@ export default (theme: Theme) => createStyles({
       margin: 0,
       padding: 0,
       width: '100%',
+    },
+    'body': {
+      height:'100%',
+      backgroundColor: theme.palette.grey['200'],
     }
   },
   container: {
@@ -17,6 +21,5 @@ export default (theme: Theme) => createStyles({
     boxSizing: 'border-box',
     padding: '2rem 3rem',
     overflow: 'auto',
-    backgroundColor: theme.palette.grey['200'],
   }
 });
