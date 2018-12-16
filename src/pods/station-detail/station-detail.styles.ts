@@ -5,34 +5,55 @@ export default (theme: Theme) => createStyles({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    height: '100vh',
+    height: '100%',
     boxSizing: 'border-box',
     padding: '2rem',
     overflow: 'auto',
     backgroundColor: 'white',
+
   },
-  subtitle: { 
+  pageDetailTitle: {
+    marginBottom: '2rem',
+    textAlign: 'center'
+  },
+  subtitle: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    height: '100%'
   },
-  detailCard: {
-    paddingTop:'1rem'
+  stationInformation: {
+    paddingTop: '1rem',
+    width: '50%',
+  },
+  pollutersMeasured: {
+    paddingTop: '1rem',
+    width: '30%',
   },
   detailOverviewList: {
     listStyleType: 'none',
     paddingLeft: 0
   },
+  polluterChip: {
+    margin: theme.spacing.unit,
+    alignItems: 'center',
+  },
   polluterHealthy: {
+    margin: theme.spacing.unit,
     backgroundColor: '#00FF00'
   },
   polluterWarning: {
+    margin: theme.spacing.unit,
     backgroundColor: '#FFFF00'
   },
   polluterDanger: {
-    backgroundColor: '#FF9900'
+    margin: theme.spacing.unit,
+    backgroundColor: '#FF9900',
+    color: 'white'
   },
   polluterHeavyDanger: {
-    backgroundColor: '#FF0000'
+    margin: theme.spacing.unit,
+    backgroundColor: '#FF0000',
+    color: 'white'
   }
 });

@@ -18,7 +18,7 @@ export const createDefaultStationDetail = (): StationDetail => ({
     eoiCode: '08019044',
     name: 'Barcelona (Gràcia - Sant Gervasi)',
     installationDate: '01/01/1987',
-    coords: [429236,4583371],
+    coords: [429236, 4583371],
     altitude: 57,
     cp: 'Pl. Gal·la Placídia',
     city: 'Barcelona',

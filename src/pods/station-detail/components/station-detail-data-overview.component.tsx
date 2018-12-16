@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { StationDetail } from "./station-detail.vm";
+import { StationDetail } from "../station-detail.vm";
 import { Typography, CardContent } from '@material-ui/core';
 import { WithStyles } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import styles from './station-detail.styles';
+import styles from '../station-detail.styles';
 
 interface Props extends WithStyles<typeof styles> {
     stationDetail: StationDetail;
