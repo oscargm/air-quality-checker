@@ -22,6 +22,10 @@ export default (theme: Theme) => createStyles({
     justifyContent: 'space-between',
     height: '100%'
   },
+  pageDetailBody: {
+    paddingTop:'2rem',
+    boxSizing:'border-box'
+  },
   stationInformation: {
     paddingTop: '1rem',
     width: '50%',
