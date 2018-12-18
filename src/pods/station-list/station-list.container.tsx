@@ -1,11 +1,12 @@
 import * as React from "react";
-import { Paper, WithStyles, Typography } from "@material-ui/core";
+import { Paper, WithStyles, Typography, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./station-list.styles";
 import { BasicStation } from "./station-list.vm";
-import Axios from "axios";
+import { Store } from '@material-ui/icons';
 import { stationListAPI } from "../../api/station-list-api";
 import { Link } from "react-router-dom";
+import { StationListRow } from './station-list-row.component';
 
 interface Props extends WithStyles<typeof styles> { }
 
@@ -25,17 +26,17 @@ class StationListContainerInner extends React.Component<Props, State> {
         <Typography variant={"h1"} className={classes.pageListTitle}>
           Air Quality checker
         </Typography>
-        <ul>
-          {this.state.stationList.map((station: BasicStation) => {
-            return (
-              <li key={station.id}>
-                <Link to={`/station/${station.eoiCode}`}>{station.name}</Link>
-              </li>
-            );
-          })}
-        </ul>
+        <List component="nav">
+          {
+            this.state.stationList.map((station: BasicStation) => {
+              return (
+                <StationListRow station={station}/>
+              );
+            })
+          }
+        </List>
       </Paper>
-    );
+    )
   }
 }
 export const StationListContainer = withStyles(styles)(

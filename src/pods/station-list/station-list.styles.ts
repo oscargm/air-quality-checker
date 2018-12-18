@@ -59,5 +59,8 @@ export default (theme: Theme) => createStyles({
     margin: theme.spacing.unit,
     backgroundColor: '#FF0000',
     color: 'white'
+  },
+  stationListRow: {
+    textDecoration: 'none'
   }
 });
