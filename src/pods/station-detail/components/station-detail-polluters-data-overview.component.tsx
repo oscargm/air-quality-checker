@@ -31,13 +31,13 @@ const StationPollutersOverviewComponent = (props: Props) =>
             props.polluters.map((polluter: LocalPolluter) => {
                 switch (getSaturationState(Number(polluter.lastMeasiringValue), Number(polluter.regularMargin), Number(polluter.poorMargin))) {
                     case polluterSaturationStates.HEALTHY:
-                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterHealthy} />);
+                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterHealthy} key={polluter.abbreviation+''+polluter.measuringType}/>);
                     case polluterSaturationStates.WARNING:
-                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterWarning} />);
+                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterWarning} key={polluter.abbreviation+''+polluter.measuringType}/>);
                     case polluterSaturationStates.HEAVYDANGER:
-                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterHeavyDanger} />);
+                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterHeavyDanger} key={polluter.abbreviation+''+polluter.measuringType}/>);
                     default:
-                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterUndefined} />);
+                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterUndefined} key={polluter.abbreviation+''+polluter.measuringType}/>);
                 }
             })
         }

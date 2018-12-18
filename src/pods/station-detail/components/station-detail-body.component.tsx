@@ -5,12 +5,26 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { WithStyles } from '@material-ui/core';
 import styles from '../station-detail.styles';
+import ReactChartkick, { LineChart } from 'react-chartkick'
+import Chart from 'chart.js'
+
+ReactChartkick.addAdapter(Chart)
 
 interface Props extends WithStyles<typeof styles> {
+    stationName: string;
+    data: {};
+}
+
+const convertData = (props) => {
+    const arrData = {}
+    props.data.map(dateData => {
+        arrData[dateData.date] = (dateData["NO2 (µg/m³)"] === "Sense dades") ? '0': dateData["NO2 (µg/m³)"];
+    })
+    return arrData;
 }
 
 const StationDetailBodyComponent = (props: Props) =>
     <div className={props.classes.pageDetailBody}>
-        <Typography paragraph={true}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Typography>
+        <LineChart name={props.stationName} data={convertData(props)}/>
     </div>
 export const StationDetailBody = withStyles(styles)(StationDetailBodyComponent);

@@ -28,14 +28,14 @@ class StationDetailContainerInner extends React.Component<Props, State> {
         coords: [0, 0],
         cp: "",
         installationDate: "",
-        polluters: []
+        polluters: [],
+        historics: [{}]
       },
       eoiCode: props.match.params.eoiCode
     };
   }
   componentDidMount() {
     stationDetailAPI.getStationById(this.state.eoiCode).then(response => {
-      console.log(response);
       this.setState({stationDetail: mapStationDetailFromApiToVM(response), eoiCode:this.state.eoiCode});
     });
   }
@@ -49,7 +49,7 @@ class StationDetailContainerInner extends React.Component<Props, State> {
           {this.state.stationDetail.name}
         </Typography>
         <StationDetailSubtitle stationDetail={this.state.stationDetail} />
-        <StationDetailBody />
+        <StationDetailBody stationName={this.state.stationDetail.name} data={this.state.stationDetail.historics}/>
       </Paper>
     );
   }

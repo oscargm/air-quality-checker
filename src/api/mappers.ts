@@ -2,7 +2,8 @@ import { RemoteStationAPI, BasicStationAPI, LocalStationAPI } from "./model/stat
 import { LocalPolluterAPI, RemotePolluterAPI } from './model/polluter.entity';
 
 export const mapStationDetailToApiModel = (data: RemoteStationAPI): LocalStationAPI =>
-    ({
+    {
+        return{
         id: data.id,
         name: data.nom,
         eoiCode: data.codiEOI,
@@ -19,11 +20,11 @@ export const mapStationDetailToApiModel = (data: RemoteStationAPI): LocalStation
         type: data.tipus,
         areaType1: data.tipusArea1,
         areaType2: data.tipusArea2,
-        polluters: mapRemotePollutersToLocal(data.contaminants)
-    });
+        polluters: mapRemotePollutersToLocal(data.contaminants),
+        historics: data.historics
+    }};
 const mapRemotePollutersToLocal = (remotePoluters): LocalPolluterAPI[] => {
     return Object.keys(remotePoluters).map((key: string):LocalPolluterAPI => ({
-        
             abbreviation: remotePoluters[key].abreviatura,
             icqa: remotePoluters[key].icqa,
             active: remotePoluters[key].actiu,
@@ -37,7 +38,6 @@ const mapRemotePollutersToLocal = (remotePoluters): LocalPolluterAPI[] => {
     };
 
 export function mapStationListToApiModel(data): BasicStationAPI[] {
-    console.log(data);
     return (data.map((stationDetail: RemoteStationAPI): BasicStationAPI => ({
         id: stationDetail.id,
         eoiCode: stationDetail.codiEOI,

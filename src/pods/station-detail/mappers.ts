@@ -3,7 +3,8 @@ import { StationDetail } from './station-detail.vm';
 import { LocalPolluterAPI } from '../../api/model/polluter.entity';
 import { ExtendedPolluter } from '../../model/polluter';
 
-export const mapStationDetailFromApiToVM = (stationDetail: LocalStationAPI):StationDetail => ({
+export const mapStationDetailFromApiToVM = (stationDetail: LocalStationAPI):StationDetail => {
+    return {
     id: parseInt(stationDetail.id),
     altitude: parseInt(stationDetail.altitude),
     areaType: stationDetail.areaType1,
@@ -13,5 +14,7 @@ export const mapStationDetailFromApiToVM = (stationDetail: LocalStationAPI):Stat
     eoiCode:stationDetail.eoiCode,
     installationDate: stationDetail.installationDate,
     name: stationDetail.name,
-    polluters: stationDetail.polluters
-});
+    polluters: stationDetail.polluters,
+    historics: stationDetail.historics
+}
+};

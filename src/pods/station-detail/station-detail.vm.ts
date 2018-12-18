@@ -12,6 +12,7 @@ export interface StationDetail {
     city: string;
     areaType: string;
     polluters: LocalPolluter[];
+    historics: Object[];
 }
 /*
 export const createDefaultStationDetail = (): StationDetail => ({
