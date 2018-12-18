@@ -26,9 +26,20 @@ export const mapStationDetailsToApiModel = ( response): Promise<LocalStationDeta
         polluters: Object.values(response.contaminants)
     });
 */
+/*
 export function mapStationListToApiModel({ data }: AxiosResponse<RemoteStation[]>) {
     console.log(data);
     return (data.map((stationDetail: RemoteStation): LocalStation => ({
+        id: Number(stationDetail.id),
+        eoiCode: Number(stationDetail.eoiCode),
+        name: stationDetail.name
+    })));
+}
+*/
+
+export function mapStationListToApiModel(data): LocalStation[] {
+    console.log(data);
+    return (data.map((stationDetail): LocalStation => ({
         id: Number(stationDetail.id),
         eoiCode: Number(stationDetail.eoiCode),
         name: stationDetail.name

@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { Route, Switch, HashRouter } from 'react-router-dom';
-import { SceneStationDetail } from './scenes';
+import * as React from "react";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { SceneStationDetail, SceneLanding } from "./scenes";
 
 export class App extends React.Component<{}, {}> {
-    render() {
-        return (
-            <HashRouter>
-                <Switch>
-                    <Route path={'/'} component={SceneStationDetail} />
-                    <Route path={'/station/:eoiCode'} component={SceneStationDetail} />
-                </Switch>
-            </HashRouter>
-        )
-    }
+  render() {
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path={"/"} component={SceneLanding} />
+          <Route path={"/station/:eoiCode"} component={SceneStationDetail} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }

@@ -1,9 +1,11 @@
-import * as React from 'react';
-import { DetailView } from '../layouts/detail-view.component';
-import { StationDetailContainer } from '../pods/station-detail/';
-import { createDefaultStationDetail } from '../pods/station-detail/station-detail.vm';
+import * as React from "react";
+import { DetailView } from "../layouts/detail-view.component";
+import { StationDetailContainer } from "../pods/station-detail/";
 
-export const SceneStationDetail: React.StatelessComponent = () =>
+export const SceneStationDetail: React.StatelessComponent = props => {
+  return (
     <DetailView>
-        <StationDetailContainer stationDetail={createDefaultStationDetail()}/>
+      <StationDetailContainer {...props} />
     </DetailView>
+  );
+};
