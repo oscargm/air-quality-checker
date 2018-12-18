@@ -4,7 +4,7 @@
   "description": "A site to check air quality stations data in a friendly way",
   "main": "index.js",
   "scripts": {
-    "mock-server": "json-server --routes ./src/mock-server/routes.json --watch ./src/mock-server/data/station-list.json",
+    "mock-server": "json-server --routes ./src/mock-server/routes.json --watch ./src/mock-server/data/db.json",
     "start": "npm run start:dev",
     "start:dev": "nodemon --watch webpack.*.js --exec \"webpack-dev-server\" --mode=development",
     "start:prod": "nodemon --watch webpack.*.js --exec \"webpack-dev-server\" --mode=production",

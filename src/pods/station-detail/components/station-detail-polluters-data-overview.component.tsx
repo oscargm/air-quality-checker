@@ -11,9 +11,8 @@ interface Props extends WithStyles<typeof styles> {
     polluters: LocalPolluter[];
 }
 
-const getSaturationState = (currentValue: string, regularMargin: string, poorMargin: string) => {
-    if(currentValue && regularMargin && poorMargin)
-    {
+const getSaturationState = (currentValue: number, regularMargin: number, poorMargin: number) => {
+    if (currentValue && regularMargin && poorMargin) {
         if (currentValue < regularMargin) {
             return polluterSaturationStates.HEALTHY;
         } else {
@@ -30,7 +29,7 @@ const StationPollutersOverviewComponent = (props: Props) =>
     <CardContent>
         {
             props.polluters.map((polluter: LocalPolluter) => {
-                switch (getSaturationState(polluter.lastMeasiringValue, polluter.regularMargin, polluter.poorMargin)) {
+                switch (getSaturationState(Number(polluter.lastMeasiringValue), Number(polluter.regularMargin), Number(polluter.poorMargin))) {
                     case polluterSaturationStates.HEALTHY:
                         return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterHealthy} />);
                     case polluterSaturationStates.WARNING:

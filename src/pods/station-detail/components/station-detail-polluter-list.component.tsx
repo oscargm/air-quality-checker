@@ -1,6 +1,5 @@
 
-import { Typography, Avatar, Chip } from '@material-ui/core';
-import { ExtendedPolluter } from 'model/polluter';
+import { Chip } from '@material-ui/core';
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { WithStyles } from '@material-ui/core';
@@ -17,7 +16,7 @@ const PolluterItemListComponent = (props: Props) =>
         label={props.polluter.abbreviation}
         onClick={() => { alert(props.polluter.abbreviation) }}
         className={props.stateClass}
-        title={props.polluter.abbreviation+' ('+props.polluter.measuringType+').'}
+        title={props.polluter.abbreviation+'\t'+props.polluter.lastMeasiringValue+' '+props.polluter.unit+'\t('+props.polluter.measuringType+').'}
     />
 
 export const PolluterItemList = withStyles(styles)(PolluterItemListComponent);
