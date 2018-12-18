@@ -4,10 +4,10 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "./station-list.styles";
 import { BasicStation } from "./station-list.vm";
 import Axios from "axios";
-import { stationListAPI } from "api/station-list-api";
+import { stationListAPI } from "../../api/station-list-api";
 import { Link } from "react-router-dom";
 
-interface Props extends WithStyles<typeof styles> {}
+interface Props extends WithStyles<typeof styles> { }
 
 interface State {
   stationList: BasicStation[];
@@ -16,9 +16,7 @@ interface State {
 class StationListContainerInner extends React.Component<Props, State> {
   state: State = { stationList: [] };
   componentDidMount() {
-    Axios.get("http://localhost:3000/api/stations").then(response => {
-      this.setState({ stationList: response.data });
-    });
+    stationListAPI.getStationList().then(response => this.setState({ stationList: response.data }));
   }
   render() {
     const { classes } = this.props;
