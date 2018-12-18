@@ -17,6 +17,7 @@ This just have started, a long way to go is ahead.
 ```
 git clone https://github.com/oscargm/air-quality-checker.git
 cd ./air-quality-checker
+npm run mock-server
 npm start
 ```
 [Open it](http://localhost:8080) in your favorite browser
