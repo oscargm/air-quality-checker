@@ -1,4 +1,4 @@
-import { Polluter } from "./polluter.entity";
+import { LocalPolluterAPI } from "./polluter.entity";
 
 export interface RemoteStationDetail {
     nom: string;
@@ -39,5 +39,5 @@ export interface LocalStationDetail {
     type: string;
     areaType1: string;
     areaType2: string;
-    polluters: Polluter[];
+    polluters: LocalPolluterAPI[];
 }

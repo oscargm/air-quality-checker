@@ -1,4 +1,5 @@
-import { ExtendedPolluter, createDefaultPolluters } from "../../model/polluter";
+import { createDefaultPolluters } from "../../model/polluter";
+import { LocalPolluter } from '../../model/apiPolluter';
 
 export interface StationDetail {
     id: number;
@@ -10,9 +11,9 @@ export interface StationDetail {
     cp: string;
     city: string;
     areaType: string;
-    polluters: ExtendedPolluter[];
+    polluters: LocalPolluter[];
 }
-
+/*
 export const createDefaultStationDetail = (): StationDetail => ({
     id: 1,
     eoiCode: '08019044',
@@ -25,3 +26,4 @@ export const createDefaultStationDetail = (): StationDetail => ({
     areaType: 'Urbana, Trànsit',
     polluters: createDefaultPolluters()
 })
+*/

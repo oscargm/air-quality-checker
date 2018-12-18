@@ -1,78 +1,179 @@
 {
-    "stations": [{
+    "basicStations": [
+        {
             "id": "1",
-            "eoiCode": "08019051",
-            "name": "Barcelona (c/ Lluís Sole i Sabaris)"
+            "codiEOI": "08019051",
+            "nom": "Barcelona (c/ Lluís Sole i Sabaris)"
         },
         {
             "id": "2",
-            "eoiCode": "08019050",
-            "name": "Barcelona (Ciutadella)"
+            "codiEOI": "08019050",
+            "nom": "Barcelona (Ciutadella)"
         },
         {
             "id": "3",
-            "eoiCode": "08019004",
-            "name": "Barcelona (el Poblenou)"
+            "codiEOI": "08019004",
+            "nom": "Barcelona (el Poblenou)"
         },
         {
             "id": "4",
-            "eoiCode": "08019052",
-            "name": "Barcelona (el Port Vell)"
+            "codiEOI": "08019052",
+            "nom": "Barcelona (el Port Vell)"
         },
         {
             "id": "5",
-            "eoiCode": "08019044",
-            "name": "Barcelona (Gràcia - Sant Gervasi)"
+            "codiEOI": "08019044",
+            "nom": "Barcelona (Gràcia - Sant Gervasi)"
         },
         {
             "id": "6",
-            "eoiCode": "08019053",
-            "name": "Barcelona (IES Goya)"
+            "codiEOI": "08019053",
+            "nom": "Barcelona (IES Goya)"
         },
         {
             "id": "7",
-            "eoiCode": "08019055",
-            "name": "Barcelona (IES Verdaguer)"
+            "codiEOI": "08019055",
+            "nom": "Barcelona (IES Verdaguer)"
         },
         {
             "id": "8",
-            "eoiCode": "08019043",
-            "name": "Barcelona (l<Eixample)"
+            "codiEOI": "08019043",
+            "nom": "Barcelona (l<Eixample)"
         },
         {
             "id": "9",
-            "eoiCode": "08019057",
-            "name": "Barcelona (Palau Reial)"
+            "codiEOI": "08019057",
+            "nom": "Barcelona (Palau Reial)"
         },
         {
             "id": "10",
-            "eoiCode": "08019054",
-            "name": "Barcelona (parc de la Vall d<Hebron)"
+            "codiEOI": "08019054",
+            "nom": "Barcelona (parc de la Vall d<Hebron)"
         },
         {
             "id": "11",
-            "eoiCode": "08019028",
-            "name": "Barcelona (pl. de la Universitat)"
+            "codiEOI": "08019028",
+            "nom": "Barcelona (pl. de la Universitat)"
         },
         {
             "id": "12",
-            "eoiCode": "08019042",
-            "name": "Barcelona (Sants)"
+            "codiEOI": "08019042",
+            "nom": "Barcelona (Sants)"
         },
         {
             "id": "13",
-            "eoiCode": "08019056",
-            "name": "Barcelona (Torre Girona)"
+            "codiEOI": "08019056",
+            "nom": "Barcelona (Torre Girona)"
         },
         {
             "id": "14",
-            "eoiCode": "08019045",
-            "name": "Barcelona (Zona Universitària)"
+            "codiEOI": "08019045",
+            "nom": "Barcelona (Zona Universitària)"
         },
         {
             "id": "15",
-            "eoiCode": "08019049",
-            "name": "Zona Portuària de Barcelona (escullera)"
+            "codiEOI": "08019049",
+            "nom": "Zona Portuària de Barcelona (escullera)"
+        }
+    ],
+    "stations": [
+        {
+            "id":"08019050",
+            "nom": "Barcelona (Ciutadella)",
+            "codiEOI": "08019050",
+            "municipi": "Barcelona",
+            "direccioPostal": "Parc de la Ciutadella, entrada del zoològic",
+            "dataInstalacio": "01/06/2004",
+            "dataRetirada": "",
+            "latitud": "41.386",
+            "longitud": "2.188",
+            "altitud": "7",
+            "latitudGoogle": "41.386414",
+            "longitudGoogle": "2.187417",
+            "UTM": "432061 , 4581973",
+            "tipus": "X",
+            "tipusArea1": "indexurbana",
+            "tipusArea2": "indexfondo",
+            "contaminants": {
+                "contaminant0": {
+                    "abreviatura": "CO",
+                    "icqa": true,
+                    "tipusMesura": "A",
+                    "actiu": false,
+                    "margePobra": "11",
+                    "margeRegular": "7",
+                    "qualitat": "",
+                    "valorUltimaMesura": "",
+                    "unitat": "mg/m³"
+                },
+                "contaminant1": {
+                    "abreviatura": "C6H6",
+                    "icqa": false,
+                    "tipusMesura": "M",
+                    "actiu": false,
+                    "margePobra": "null",
+                    "margeRegular": "null",
+                    "qualitat": "",
+                    "valorUltimaMesura": "",
+                    "unitat": "µg/m³"
+                },
+                "contaminant2": {
+                    "abreviatura": "NO",
+                    "icqa": false,
+                    "tipusMesura": "A",
+                    "actiu": true,
+                    "margePobra": "null",
+                    "margeRegular": "null",
+                    "qualitat": "",
+                    "valorUltimaMesura": "",
+                    "unitat": "µg/m³"
+                },
+                "contaminant3": {
+                    "abreviatura": "NOx",
+                    "icqa": false,
+                    "tipusMesura": "A",
+                    "actiu": true,
+                    "margePobra": "null",
+                    "margeRegular": "null",
+                    "qualitat": "",
+                    "valorUltimaMesura": "",
+                    "unitat": "µg/m³"
+                },
+                "contaminant4": {
+                    "abreviatura": "NO2",
+                    "icqa": true,
+                    "tipusMesura": "A",
+                    "actiu": true,
+                    "margePobra": "201",
+                    "margeRegular": "91",
+                    "qualitat": "",
+                    "valorUltimaMesura": "",
+                    "unitat": "µg/m³"
+                },
+                "contaminant5": {
+                    "abreviatura": "O3",
+                    "icqa": true,
+                    "tipusMesura": "A",
+                    "actiu": true,
+                    "margePobra": "181",
+                    "margeRegular": "111",
+                    "qualitat": "",
+                    "valorUltimaMesura": "",
+                    "unitat": "µg/m³"
+                },
+                "contaminant6": {
+                    "abreviatura": "SO2",
+                    "icqa": true,
+                    "tipusMesura": "A",
+                    "actiu": false,
+                    "margePobra": "351",
+                    "margeRegular": "201",
+                    "qualitat": "",
+                    "valorUltimaMesura": "",
+                    "unitat": "µg/m³"
+                }
+            },
+            "primeraData": "23/04/2004"
         }
     ]
 }

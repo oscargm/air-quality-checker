@@ -1,5 +1,5 @@
 export interface BasicStation {
-    id: number;
-    eoiCode: number;
+    id: string;
+    eoiCode: string;
     name: string;
 }

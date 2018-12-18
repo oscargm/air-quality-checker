@@ -6,6 +6,8 @@ import { StationDetail } from "./station-detail.vm";
 import { StationDetailSubtitle } from "./components/station-detail.subtitle";
 import { StationDetailBody } from "./components/station-detail-body.component";
 import Axios from "axios";
+import { stationDetailAPI } from "../../api/station-detail-api";
+import { mapStationDetailFromApiToVM } from './mappers';
 interface Props extends WithStyles<typeof styles> {}
 
 interface State {
@@ -15,7 +17,6 @@ interface State {
 class StationDetailContainerInner extends React.Component<Props, State> {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       stationDetail: {
         id: 0,
@@ -33,10 +34,10 @@ class StationDetailContainerInner extends React.Component<Props, State> {
     };
   }
   componentDidMount() {
-    Axios.get(
-      "http://dtes.gencat.cat/icqa/AppJava/getEstacio.do?codiEOI=" +
-        this.state.eoiCode
-    ).then(response => console.log(response.data));
+    stationDetailAPI.getStationById(this.state.eoiCode).then(response => {
+      console.log(response);
+      this.setState({stationDetail: mapStationDetailFromApiToVM(response), eoiCode:this.state.eoiCode});
+    });
   }
   render() {
     return (

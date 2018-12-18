@@ -16,7 +16,7 @@ interface State {
 class StationListContainerInner extends React.Component<Props, State> {
   state: State = { stationList: [] };
   componentDidMount() {
-    stationListAPI.getStationList().then(response => this.setState({ stationList: response.data }));
+    stationListAPI.getStationList().then(response => this.setState({ stationList: response }));
   }
   render() {
     const { classes } = this.props;

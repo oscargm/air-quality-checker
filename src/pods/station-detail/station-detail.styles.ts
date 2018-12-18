@@ -59,5 +59,10 @@ export default (theme: Theme) => createStyles({
     margin: theme.spacing.unit,
     backgroundColor: '#FF0000',
     color: 'white'
+  },
+  polluterUndefined: {
+    margin: theme.spacing.unit,
+    backgroundColor: '#CCC',
+    color: 'white'
   }
 });
