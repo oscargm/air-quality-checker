@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { SceneStationDetail } from './scenes/';
+import { App } from './app';
 ReactDOM.render(
-    <SceneStationDetail/>,
+    <App/>,
     document.getElementById('root'));

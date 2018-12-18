@@ -12,7 +12,7 @@ export default (theme: Theme) => createStyles({
     backgroundColor: 'white',
 
   },
-  pageDetailTitle: {
+  pageListTitle: {
     marginBottom: '2rem',
     textAlign: 'center'
   },
@@ -58,11 +58,6 @@ export default (theme: Theme) => createStyles({
   polluterHeavyDanger: {
     margin: theme.spacing.unit,
     backgroundColor: '#FF0000',
-    color: 'white'
-  },
-  polluterUndefined: {
-    margin: theme.spacing.unit,
-    backgroundColor: '#CCC',
     color: 'white'
   }
 });
