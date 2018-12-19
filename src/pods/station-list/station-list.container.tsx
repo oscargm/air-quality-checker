@@ -30,7 +30,7 @@ class StationListContainerInner extends React.Component<Props, State> {
           {
             this.state.stationList.map((station: BasicStation) => {
               return (
-                <StationListRow station={station}/>
+                <StationListRow station={station} key={station.id}/>
               );
             })
           }
