@@ -38,7 +38,7 @@
         {
             "id": "8",
             "codiEOI": "08019043",
-            "nom": "Barcelona (l<Eixample)"
+            "nom": "Barcelona (l'Eixample)"
         },
         {
             "id": "9",
@@ -8272,7 +8272,7 @@
         },
         {
             "id": "08019043",
-            "nom": "Barcelona (l<Eixample)",
+            "nom": "Barcelona (l'Eixample)",
             "codiEOI": "08019043",
             "municipi": "Barcelona",
             "direccioPostal": "Av. de Roma - c. d<Urgell",
