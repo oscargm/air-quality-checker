@@ -22,15 +22,15 @@ const convertData = (props) => {
     const coData = {name : 'CO (mg/m³)', data: {}};
     const pm10Data = {name : 'PM10 (µg/m³)', data: {}};
 
-
+    console.log(props.data);
     props.data.map(dateData => {
         console.log(dateData);
-        so2Data.data[dateData.date] = (dateData["SO2 (µg/m³)"] === "Sense dades") ? '0': dateData["SO2 (µg/m³)"];
-        noData.data[dateData.date] = (dateData["NO (µg/m³)"] === "Sense dades") ? '0': dateData["NO (µg/m³)"];
-        no2Data.data[dateData.date] = (dateData["NO2 (µg/m³)"] === "Sense dades") ? '0': dateData["NO2 (µg/m³)"];
-        o3Data.data[dateData.date] = (dateData["O3 (µg/m³)"] === "Sense dades") ? '0': dateData["O3 (µg/m³)"];
-        coData.data[dateData.date] = (dateData["CO (mg/m³)"] === "Sense dades") ? '0': dateData["CO (mg/m³)"];
-        pm10Data.data[dateData.date] = (dateData["PM10 (µg/m³)"] === "Sense dades") ? '0': dateData["PM10 (µg/m³)"];
+        so2Data.data[dateData.date] = (dateData["SO2 (µg/m³)"] === "Sense dades") ? null: dateData["SO2 (µg/m³)"];
+        noData.data[dateData.date] = (dateData["NO (µg/m³)"] === "Sense dades") ? null: dateData["NO (µg/m³)"];
+        no2Data.data[dateData.date] = (dateData["NO2 (µg/m³)"] === "Sense dades") ? null: dateData["NO2 (µg/m³)"];
+        o3Data.data[dateData.date] = (dateData["O3 (µg/m³)"] === "Sense dades") ? null: dateData["O3 (µg/m³)"];
+        coData.data[dateData.date] = (dateData["CO (mg/m³)"] === "Sense dades") ? null: dateData["CO (mg/m³)"];
+        pm10Data.data[dateData.date] = (dateData["PM10 (µg/m³)"] === "Sense dades") ? null: dateData["PM10 (µg/m³)"];
     })
     
     return [so2Data, noData, no2Data, o3Data, coData, pm10Data];
