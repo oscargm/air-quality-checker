@@ -1,12 +1,11 @@
 
-import { Typography, Avatar, Chip } from '@material-ui/core';
-import { ExtendedPolluter } from 'model/polluter';
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { WithStyles } from '@material-ui/core';
 import styles from '../station-detail.styles';
 import ReactChartkick, { LineChart } from 'react-chartkick'
 import Chart from 'chart.js'
+import { Typography } from '@material-ui/core';
 
 ReactChartkick.addAdapter(Chart)
 
@@ -37,8 +36,19 @@ const convertData = (props) => {
     return [so2Data, noData, no2Data, o3Data, coData, pm10Data];
 }
 
-const StationDetailBodyComponent = (props: Props) =>
-    <div className={props.classes.pageDetailBody}>
-        <LineChart name={props.stationName} data={convertData(props)} xtitle="Dates" ytitle="Concentration" height={400}/>
-    </div>
+const StationDetailBodyComponent = (props: Props) => {
+    if(props.data)
+    {
+        return (
+        <div className={props.classes.pageDetailBody}>
+            <LineChart name={props.stationName} data={convertData(props)} xtitle="Dates" ytitle="Concentration" height={400}/>
+        </div>
+        )
+    }
+    else {
+        return(
+            <div className={props.classes.pageDetailBody}><Typography variant={'h5'}>No data to display</Typography></div>
+        )
+    }
+}
 export const StationDetailBody = withStyles(styles)(StationDetailBodyComponent);
