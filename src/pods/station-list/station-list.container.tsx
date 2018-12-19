@@ -26,6 +26,7 @@ class StationListContainerInner extends React.Component<Props, State> {
         <Typography variant={"h1"} className={classes.pageListTitle}>
           Air Quality checker
         </Typography>
+        <Typography paragraph={true}><strong>Disclaimer</strong>, all this data is mocked from <a href="http://dtes.gencat.cat/icqa/">here</a></Typography>
         <List component="nav">
           {
             this.state.stationList.map((station: BasicStation) => {
