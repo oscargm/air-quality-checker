@@ -4,9 +4,8 @@
   "description": "A site to check air quality stations data in a friendly way",
   "main": "index.js",
   "scripts": {
-    "mock-server": "json-server --routes ./src/mock-server/routes.json --watch ./src/mock-server/data/db.json",
     "start": "npm run start:dev",
-    "start:dev": "nodemon --watch webpack.*.js --exec \"webpack-dev-server\" --mode=development",
+    "start:dev": "concurrently \"nodemon --watch webpack.*.js --exec \"webpack-dev-server\" --mode=development\" \"json-server --routes ./src/mock-server/routes.json --watch ./src/mock-server/data/db.json\"",
     "start:prod": "nodemon --watch webpack.*.js --exec \"webpack-dev-server\" --mode=production",
     "build": "npm run build:dev",
     "build:dev": "rimraf dist && webpack --config webpack.dev.js",
@@ -39,6 +38,7 @@
     "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
+    "concurrently": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
     "react": "^16.6.3",
