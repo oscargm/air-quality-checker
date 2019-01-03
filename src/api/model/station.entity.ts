@@ -5,6 +5,7 @@ export interface BasicStationAPI {
     name: string;
     eoiCode: string;
 }
+
 export interface LocalStationAPI {
     id: string;
     name: string;
@@ -25,6 +26,7 @@ export interface LocalStationAPI {
     polluters: LocalPolluterAPI[];
     historics: Object[];
 }
+
 export interface RemoteStationAPI {
     id: string;
     nom: string;
@@ -42,6 +44,8 @@ export interface RemoteStationAPI {
     tipus: string;
     tipusArea1: string;
     tipusArea2: string;
-    contaminants: {[key: string]: RemotePolluterAPI};
+    contaminants: RemotePollutersDict;
     historics: Object[];
 }
+
+export type RemotePollutersDict = {[key: string]: RemotePolluterAPI};
