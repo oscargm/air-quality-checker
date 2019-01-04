@@ -1,20 +1,8 @@
-export interface LocalPolluterAPI {
-    abbreviation: string;
-    icqa: string;
-    measuringType: string;
-    active: string;
-    poorMargin: string;
-    regularMargin: string;
-    quality?: string;
-    lastMeasiringValue?: string;
-    unit: string;
-}
-
 export interface RemotePolluterAPI {
     abreviatura: string;
-    icqa: string;
+    icqa: boolean;
     tipusMesura: string;
-    actiu: string;
+    actiu: boolean;
     margePobra: string;
     margeRegular: string;
     qualitat?: string;

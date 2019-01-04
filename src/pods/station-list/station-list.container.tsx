@@ -3,8 +3,8 @@ import { Paper, WithStyles, Typography, List } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './station-list.styles';
 import { BasicStation } from './station-list.vm';
-import { stationListAPI } from '../../api/station-list-api';
 import { StationListRow } from './station-list-row.component';
+import { getStationList } from './mappers';
 
 interface Props extends WithStyles<typeof styles> {}
 
@@ -15,7 +15,7 @@ interface State {
 class StationListContainerInner extends React.Component<Props, State> {
     state: State = { stationList: [] };
     componentDidMount() {
-        stationListAPI.getStationList().then(stationList => this.setState({ stationList }));
+        getStationList().then(stationList => this.setState({ stationList }));
     }
     render() {
         const { classes } = this.props;
@@ -37,4 +37,5 @@ class StationListContainerInner extends React.Component<Props, State> {
         );
     }
 }
+
 export const StationListContainer = withStyles(styles)(StationListContainerInner);
