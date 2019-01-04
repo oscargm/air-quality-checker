@@ -11,7 +11,14 @@ export interface StationDetail {
     city: string;
     areaType: string;
     polluters: Polluter[];
-    historics: any[];
+    historics: StationHistoricLineChart[];
+}
+
+export interface StationHistoricLineChart {
+    name: string;
+    data: {
+        [date: string]: number;
+    }
 }
 
 export const getEmptyStationDetail = (): StationDetail => ({

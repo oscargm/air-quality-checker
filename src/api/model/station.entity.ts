@@ -25,12 +25,12 @@ export interface RemoteStationAPI {
     tipusArea2: string;
     contaminants: RemotePollutersDictAPI;
     primeraData: string;
-    historics?: StationHistoric[];
+    historics?: RemoteStationHistoricAPI[];
 }
 
 export type RemotePollutersDictAPI = { [key: string]: RemotePolluterAPI };
 
-interface StationHistoric {
+export interface RemoteStationHistoricAPI {
     date: string;
     [key: string]: string;
 }
