@@ -1,13 +1,11 @@
-import Axios, {AxiosPromise } from 'axios';
-import { BasicStation } from '../pods/station-list/station-list.vm';
-import { mapStationListToApiModel } from './mappers';
+import Axios from 'axios';
+import { RemoteBasicStationAPI } from './model/station.entity';
 
 const getStationListURL = 'http://localhost:3000/api/stations';
 
-const getStationList = (): Promise<BasicStation[]> => {
-   return Axios.get(getStationListURL).then((response) => mapStationListToApiModel(response.data));
-}
+const getStationList = () =>
+    Axios.get<RemoteBasicStationAPI[]>(getStationListURL).then(({ data }) => data);
 
 export const stationListAPI = {
-    getStationList,
-}
+    getStationList
+};

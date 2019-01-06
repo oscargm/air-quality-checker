@@ -1,0 +1,12 @@
+{
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 2,
+    "prettier.jsxSingleQuote": true,
+    "prettier.printWidth": 100,
+    "editor.rulers": [
+        100
+    ],
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false
+}

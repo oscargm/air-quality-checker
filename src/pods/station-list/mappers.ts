@@ -1,6 +1,14 @@
-import { BasicStation } from "./station-list.vm";
-import { BasicStationAPI } from '../../api/model/station.entity';
+import { BasicStation } from './station-list.vm';
+import { RemoteBasicStationAPI } from '../../api/model/station.entity';
+import { stationListAPI } from '../../api/station-list-api';
 
-export function mapStationListToApiModel(data: BasicStationAPI[]): BasicStation[] {
-    return (data.map((stationDetail: BasicStationAPI): BasicStation => ({ ...stationDetail })));
-}
+const mapBasicStationAPIToVM = (data: RemoteBasicStationAPI[]) =>
+    data.map(
+        (stationDetail): BasicStation => ({
+            id: stationDetail.id,
+            eoiCode: stationDetail.codiEOI,
+            name: stationDetail.nom
+        })
+    );
+
+export const getStationList = () => stationListAPI.getStationList().then(mapBasicStationAPIToVM);

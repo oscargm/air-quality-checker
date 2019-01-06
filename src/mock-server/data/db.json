@@ -118,7 +118,8 @@
                     "unitat": "µg/m³"
                 }
             },
-            "primeraData": "31/01/2007"
+            "primeraData": "31/01/2007",
+            "historics": []
         },
         {
             "id": "08019050",
@@ -4696,7 +4697,8 @@
                     "unitat": "µg/m³"
                 }
             },
-            "primeraData": "02/02/2007"
+            "primeraData": "02/02/2007",
+            "historics": []
         },
         {
             "id": "08019044",
@@ -8181,7 +8183,8 @@
                     "unitat": "µg/m³"
                 }
             },
-            "primeraData": "11/02/2007"
+            "primeraData": "11/02/2007",
+            "historics": []
         },
         {
             "id": "08019055",
@@ -8268,7 +8271,8 @@
                     "unitat": "µg/m³"
                 }
             },
-            "primeraData": "23/01/2009"
+            "primeraData": "23/01/2009",
+            "historics": []
         },
         {
             "id": "08019043",
@@ -18430,7 +18434,8 @@
                     "unitat": "µg/m³"
                 }
             },
-            "primeraData": "07/01/2005"
+            "primeraData": "07/01/2005",
+            "historics": []
         },
         {
             "id": "08019042",
@@ -20481,7 +20486,8 @@
                     "unitat": "µg/m³"
                 }
             },
-            "primeraData": "01/04/2010"
+            "primeraData": "01/04/2010",
+            "historics": []
         },
         {
             "id": "08019045",
@@ -20590,7 +20596,8 @@
                     "unitat": "µg/m³"
                 }
             },
-            "primeraData": "03/01/2005"
+            "primeraData": "03/01/2005",
+            "historics": []
         },
         {
             "id": "08019049",
@@ -20622,7 +20629,8 @@
                     "unitat": "µg/m³"
                 }
             },
-            "primeraData": "01/01/2000"
+            "primeraData": "01/01/2000",
+            "historics": []
         }
     ]
 }

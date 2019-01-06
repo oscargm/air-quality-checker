@@ -10,7 +10,6 @@ export default (theme: Theme) => createStyles({
     padding: '2rem',
     overflow: 'auto',
     backgroundColor: 'white',
-
   },
   pageListTitle: {
     marginBottom: '2rem',

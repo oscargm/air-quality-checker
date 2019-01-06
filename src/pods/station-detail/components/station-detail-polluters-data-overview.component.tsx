@@ -3,44 +3,36 @@ import { CardContent } from '@material-ui/core';
 import { WithStyles } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import styles from '../station-detail.styles';
-import { ExtendedPolluter, polluterSaturationStates } from '../../../model/polluter';
+import { Polluter, SaturationLevel } from '../../../model/polluter';
 import { PolluterItemList } from './station-detail-polluter-list.component';
-import { LocalPolluter } from '../../../model/apiPolluter';
 
 interface Props extends WithStyles<typeof styles> {
-    polluters: LocalPolluter[];
+    polluters: Polluter[];
 }
 
-const getSaturationState = (currentValue: number, regularMargin: number, poorMargin: number) => {
-    if (currentValue && regularMargin && poorMargin) {
-        if (currentValue < regularMargin) {
-            return polluterSaturationStates.HEALTHY;
-        } else {
-            if (currentValue > regularMargin && currentValue < poorMargin) {
-                return polluterSaturationStates.WARNING;
-            } else {
-                return polluterSaturationStates.HEAVYDANGER;
-            }
-        }
-    }
-}
+const getStateClass = (saturationLevel: SaturationLevel, props: Props) =>
+    saturationLevel === 'HEALTHY'
+        ? props.classes.polluterHealthy
+        : saturationLevel === 'WARNING'
+        ? props.classes.polluterWarning
+        : saturationLevel === 'DANGER'
+        ? props.classes.polluterDanger
+        : saturationLevel === 'HEAVYDANGER'
+        ? props.classes.polluterHeavyDanger
+        : props.classes.polluterUndefined;
 
-const StationPollutersOverviewComponent = (props: Props) =>
+const StationPollutersOverviewComponent = (props: Props) => (
     <CardContent>
-        {
-            props.polluters.map((polluter: LocalPolluter) => {
-                switch (getSaturationState(Number(polluter.lastMeasiringValue), Number(polluter.regularMargin), Number(polluter.poorMargin))) {
-                    case polluterSaturationStates.HEALTHY:
-                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterHealthy} key={polluter.abbreviation+''+polluter.measuringType}/>);
-                    case polluterSaturationStates.WARNING:
-                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterWarning} key={polluter.abbreviation+''+polluter.measuringType}/>);
-                    case polluterSaturationStates.HEAVYDANGER:
-                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterHeavyDanger} key={polluter.abbreviation+''+polluter.measuringType}/>);
-                    default:
-                        return (<PolluterItemList polluter={polluter} stateClass={props.classes.polluterUndefined} key={polluter.abbreviation+''+polluter.measuringType}/>);
-                }
-            })
-        }
+        {props.polluters.map(polluter => {
+            return (
+                <PolluterItemList
+                    polluter={polluter}
+                    stateClass={getStateClass(polluter.polluterSaturationState, props)}
+                    key={polluter.id}
+                />
+            );
+        })}
     </CardContent>
+);
 
 export const StationPollutersOverview = withStyles(styles)(StationPollutersOverviewComponent);
