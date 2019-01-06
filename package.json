@@ -15,7 +15,7 @@
   },
   "author": "Óscar Garcia Masiá",
   "contributors": [
-      "Josep Bergay Ribas"
+    "Josep Bergay Ribas"
   ],
   "license": "ISC",
   "devDependencies": {
@@ -35,7 +35,7 @@
     "typescript": "^3.2.2",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "3.1.10"
+    "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
     "@material-ui/core": "^3.6.2",
