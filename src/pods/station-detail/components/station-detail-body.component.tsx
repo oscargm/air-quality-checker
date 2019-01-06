@@ -15,7 +15,7 @@ interface Props extends WithStyles<typeof styles> {
 }
 
 const StationDetailBodyComponent = (props: Props) => {
-    if (props.data) {
+    if (props.data.length > 0) {
         return (
             <div className={props.classes.pageDetailBody}>
                 <LineChart
