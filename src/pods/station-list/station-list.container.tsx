@@ -1,41 +1,61 @@
-import * as React from 'react';
-import { Paper, WithStyles, Typography, List } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import styles from './station-list.styles';
-import { BasicStation } from './station-list.vm';
-import { StationListRow } from './station-list-row.component';
-import { getStationList } from './mappers';
+import * as React from 'react'
+import {
+  Paper,
+  WithStyles,
+  Typography,
+  List,
+  ExpansionPanel,
+  ExpansionPanelSummary,
+  ExpansionPanelDetails,
+} from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import styles from './station-list.styles'
+import { connect } from 'react-redux'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import { getProvinces } from './selectors'
+import { Province } from './store'
 
-interface Props extends WithStyles<typeof styles> {}
-
-interface State {
-    stationList: BasicStation[];
+interface StationListProps extends WithStyles<typeof styles> {
+  provinces: Province[]
 }
 
-class StationListContainerInner extends React.Component<Props, State> {
-    state: State = { stationList: [] };
-    componentDidMount() {
-        getStationList().then(stationList => this.setState({ stationList }));
-    }
-    render() {
-        const { classes } = this.props;
-        return (
-            <Paper className={classes.pageContainer}>
-                <Typography variant={'h1'} className={classes.pageListTitle}>
-                    Air Quality checker
-                </Typography>
-                <Typography paragraph={true}>
-                    <strong>Disclaimer</strong>, all this data is mocked from{' '}
-                    <a href='http://dtes.gencat.cat/icqa/'>here</a>
-                </Typography>
-                <List component='nav'>
-                    {this.state.stationList.map(station => (
-                        <StationListRow station={station} key={station.id} />
-                    ))}
-                </List>
-            </Paper>
-        );
-    }
+const StationListContainerInner = (props: StationListProps) => {
+  const { classes, provinces } = props
+  return (
+    <Paper className={classes.pageContainer}>
+      <Typography variant={'h1'} className={classes.pageListTitle}>
+        Air Quality checker
+      </Typography>
+      <Typography paragraph={true}>
+        <strong>Disclaimer</strong>, all this data is mocked from{' '}
+        <a href="http://dtes.gencat.cat/icqa/">here</a>
+      </Typography>
+      {provinces.map((province: Province) => (
+        <ExpansionPanel key={province.id}>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={classes.heading}>{province.name}</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+              eget.
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      ))}
+    </Paper>
+  )
 }
 
-export const StationListContainer = withStyles(styles)(StationListContainerInner);
+const mapStateToProps = state => ({
+  provinces: getProvinces(state),
+})
+export const StationListContainer = connect(
+  mapStateToProps,
+  null
+)(withStyles(styles)(StationListContainerInner))

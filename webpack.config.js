@@ -51,10 +51,11 @@ module.exports = {
       hash: true,
       chunks: ['manifest', 'vendor', 'app'],
       chunksSortMode: 'manual',
-    }),
-    new CopyWebpackPlugin([
-      // relative path is from src
-      { from: './static/favicon.ico' }, // <- your path to favicon
-    ])
+    // }),
+    // new CopyWebpackPlugin([
+    //   // relative path is from src
+    //   { from: './static/favicon.ico' }, // <- your path to favicon
+    // ])
+    })
   ],
 };

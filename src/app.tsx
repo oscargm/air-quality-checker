@@ -1,14 +1,15 @@
 import * as React from "react";
-import { Route, Switch, BrowserRouter, Router } from "react-router-dom";
-import { SceneStationDetail, SceneLanding } from "./scenes";
+import { Route, Switch, Router } from "react-router-dom";
+import { SceneLanding } from "./scenes";
 import history from "./history";
+import {StationListContainer} from './pods/station-list'
+
 export class App extends React.Component<{}, {}> {
   render() {
     return (
       <Router history={history}>
         <Switch>
-          <Route exact path={"/"} component={SceneLanding} />
-          <Route path={"/station/:eoiCode"} component={SceneStationDetail} />
+          <Route exact path={"/"} component={StationListContainer} />
         </Switch>
       </Router>
     );

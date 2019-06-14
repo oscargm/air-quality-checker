@@ -1,4 +1,0 @@
-{
-    "/api/stations": "/basicStations",
-    "/api/stations/:id": "/stations/:id"
-}
