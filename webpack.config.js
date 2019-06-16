@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 const srcPath = path.resolve(__dirname, 'src');
@@ -10,6 +9,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     mainFields: ['browser', 'module', 'main'],
+    alias: {
+      pods: path.resolve(__dirname, 'src/pods'),
+    },
   },
   entry: {
     app: ['babel-polyfill', './index.tsx'],
@@ -23,8 +25,7 @@ module.exports = {
     stats: 'errors-only'
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: "awesome-typescript-loader",
@@ -51,11 +52,11 @@ module.exports = {
       hash: true,
       chunks: ['manifest', 'vendor', 'app'],
       chunksSortMode: 'manual',
-    // }),
-    // new CopyWebpackPlugin([
-    //   // relative path is from src
-    //   { from: './static/favicon.ico' }, // <- your path to favicon
-    // ])
+      // }),
+      // new CopyWebpackPlugin([
+      //   // relative path is from src
+      //   { from: './static/favicon.ico' }, // <- your path to favicon
+      // ])
     })
   ],
 };

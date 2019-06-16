@@ -3,7 +3,6 @@ import {
   Paper,
   WithStyles,
   Typography,
-  List,
   ExpansionPanel,
   ExpansionPanelSummary,
   ExpansionPanelDetails,
@@ -14,13 +13,21 @@ import { connect } from 'react-redux'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { getProvinces } from './selectors'
 import { Province } from './store'
+import { getProvinces as getProvincesAction } from './actions';
 
 interface StationListProps extends WithStyles<typeof styles> {
   provinces: Province[]
+  getProvincesData: () => void;
 }
 
-const StationListContainerInner = (props: StationListProps) => {
-  const { classes, provinces } = props
+const StationListContainer = (props: StationListProps) => {
+  const { classes, provinces, getProvincesData } = props
+  React.useEffect(() => {
+    getProvincesData()
+  }, [])
+  React.useEffect(() => {
+    console.log('props', props)
+  })
   return (
     <Paper className={classes.pageContainer}>
       <Typography variant={'h1'} className={classes.pageListTitle}>
@@ -30,7 +37,7 @@ const StationListContainerInner = (props: StationListProps) => {
         <strong>Disclaimer</strong>, all this data is mocked from{' '}
         <a href="http://dtes.gencat.cat/icqa/">here</a>
       </Typography>
-      {provinces.map((province: Province) => (
+      {provinces && provinces.map((province: Province) => (
         <ExpansionPanel key={province.id}>
           <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}
@@ -55,7 +62,11 @@ const StationListContainerInner = (props: StationListProps) => {
 const mapStateToProps = state => ({
   provinces: getProvinces(state),
 })
-export const StationListContainer = connect(
-  mapStateToProps,
-  null
-)(withStyles(styles)(StationListContainerInner))
+
+const mapDispatchToProps = dispatch => ({
+  getProvincesData: () => dispatch(getProvincesAction())
+})
+
+export const StationList = connect(
+  mapStateToProps, mapDispatchToProps
+)(withStyles(styles)(StationListContainer))

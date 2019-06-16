@@ -4,16 +4,19 @@ import { StationListService } from './api';
 import { mapProvincesAPItoStore } from './mappers';
 
 function* fetchProvinces() {
-	try {
-		const unMappedProvinces = yield call(StationListService.getStationList);
-		const provinces = mapProvincesAPItoStore(unMappedProvinces);
-		yield put({ type: actionIds.GET_PROVINCES_SUCCESS, provinces });
-	} catch (e) {
-		console.debug('error', e);
-		yield put({ type: actionIds.GET_PROVINCES_FAIL, e });
-	}
+  try {
+    const unMappedProvinces = yield call(StationListService.getStationList);
+    console.log('unMappedProvinces', unMappedProvinces)
+    const provinces = mapProvincesAPItoStore(unMappedProvinces);
+    console.log('provinces', provinces)
+    yield put({ type: actionIds.GET_PROVINCES_SUCCESS, payload: provinces });
+  } catch (e) {
+    console.debug('error', e);
+    yield put({ type: actionIds.GET_PROVINCES_FAIL, e });
+  }
 }
 
 export function* stationListRootSaga() {
-	yield takeLatest(actionIds.GET_PROVINCES, fetchProvinces);
+  // yield call(fetchProvinces);
+  yield takeLatest(actionIds.GET_PROVINCES, fetchProvinces)
 }
