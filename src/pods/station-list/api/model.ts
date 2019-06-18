@@ -1,3 +1,6 @@
 export interface Province {
-	provincia: string;
+  provincia: string;
+}
+export interface Municipality {
+  municipi: string;
 }

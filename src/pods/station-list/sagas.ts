@@ -1,14 +1,13 @@
 import { put, takeLatest, all, call } from 'redux-saga/effects';
 import { actionIds } from './consts';
-import { StationListService } from './api';
-import { mapProvincesAPItoStore } from './mappers';
+import { StationListService, Province, Municipality } from './api';
+import { mapProvincesAPItoStore, mapMunicipalitiesAPItoStore } from './mappers';
+import { BaseAction } from 'common/base-action';
 
 function* fetchProvinces() {
   try {
-    const unMappedProvinces = yield call(StationListService.getStationList);
-    console.log('unMappedProvinces', unMappedProvinces)
+    const unMappedProvinces: Province[] = yield call(StationListService.getStationList);
     const provinces = mapProvincesAPItoStore(unMappedProvinces);
-    console.log('provinces', provinces)
     yield put({ type: actionIds.GET_PROVINCES_SUCCESS, payload: provinces });
   } catch (e) {
     console.debug('error', e);
@@ -16,7 +15,20 @@ function* fetchProvinces() {
   }
 }
 
+function* fetchMunicipalities(action: BaseAction<number>) {
+  try {
+    console.log('proince saga', action.payload)
+    const provinceId = action.payload;
+    const unMappedMunicipalities: Municipality[] = yield call(StationListService.getMunicipalitiesList, provinceId);
+    const municipalities = mapMunicipalitiesAPItoStore(unMappedMunicipalities);
+    yield put({ type: actionIds.GET_MUNICIPALITIES_SUCCESS, payload: { provinceId, municipalities } });
+  } catch (e) {
+    console.debug('error', e);
+    yield put({ type: actionIds.GET_MUNICIPALITIES_FAIL, e });
+  }
+}
+
 export function* stationListRootSaga() {
-  // yield call(fetchProvinces);
-  yield takeLatest(actionIds.GET_PROVINCES, fetchProvinces)
+  yield takeLatest(actionIds.GET_PROVINCES, fetchProvinces);
+  yield takeLatest(actionIds.GET_MUNICIPALITIES, fetchMunicipalities);
 }
