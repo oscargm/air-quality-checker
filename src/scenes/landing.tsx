@@ -1,6 +1,4 @@
-import * as React from "react";
-import { StationList } from "../pods/station-list";
+import * as React from 'react'
+import { ProvinceList } from '../pods/station-list'
 
-export const SceneLanding = () => (
-  <StationList />
-);
+export const SceneLanding = () => <ProvinceList />
